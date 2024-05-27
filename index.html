@@ -26,9 +26,8 @@
             width: 200px;
             height: 100px;
             display: flex;
-            justify-content: center;
+            justify-content: space-around; /* Distribute buttons evenly */
             align-items: center;
-            flex-direction: column;
             border-radius: 12px;
             border: 2px solid white; /* White border */
             margin-left: 10px; /* Move to the left */
@@ -52,7 +51,7 @@
 
         .cool-button:hover {
             background-color: #000080; /* Darker blue */
-            box-shadow: 0 0 20px #0000FF; /* Intensify blue glow */
+            box-shadow: 0 0 20px #0000FF, 0 0 10px #FFFFFF; /* Intensify blue glow and add white glow to border */
         }
 
         .title {
@@ -66,6 +65,8 @@
 
 <div class="container">
     <div class="title">ボタン1</div>
+    <button class="cool-button">ポタン</button>
+    <div class="title">ボタン2</div>
     <button class="cool-button">ポタン</button>
 </div>
 
