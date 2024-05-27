@@ -2,8 +2,13 @@
 <html>
 <head>
     <style>
+        body {
+            background-color: #000000; /* Black background for the entire page */
+            color: white; /* White text */
+        }
+
         .container {
-            background-color: #000000; /* Black background */
+            background-color: #333333; /* Dark grey background */
             color: white; /* White text */
             width: 200px;
             height: 100px;
@@ -12,11 +17,12 @@
             align-items: center;
             flex-direction: column;
             border-radius: 12px;
+            border: 2px solid white; /* White border */
         }
 
         .cool-button {
-            background-color: #000000; /* Black */
-            border: 2px solid white; /* White border */
+            background-color: #0000FF; /* Blue */
+            border: none;
             color: white;
             padding: 10px 20px;
             text-align: center;
@@ -27,6 +33,7 @@
             cursor: pointer;
             border-radius: 12px;
             transition-duration: 0.4s;
+            box-shadow: 0 0 10px #0000FF; /* Blue glow */
         }
 
         .cool-button:hover {
