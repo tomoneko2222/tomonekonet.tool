@@ -2,11 +2,23 @@
 <html>
 <head>
     <style>
+        .container {
+            background-color: #000000; /* Black background */
+            color: white; /* White text */
+            width: 200px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 12px;
+        }
+
         .cool-button {
             background-color: #0000FF; /* Blue */
             border: none;
             color: white;
-            padding: 15px 32px;
+            padding: 10px 20px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -23,16 +35,17 @@
             box-shadow: 0 0 20px #0000FF; /* Intensify blue glow */
         }
 
-        body {
-            background-color: #000000; /* Black background */
-            color: white; /* White text */
+        .title {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-<h2>かっこいいボタン</h2>
-<button class="cool-button">ポタン</button>
+<div class="container">
+    <div class="title">タイトル</div>
+    <button class="cool-button">ポタン</button>
+</div>
 
 </body>
 </html>
