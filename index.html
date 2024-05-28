@@ -11,7 +11,7 @@
             height: 100vh;
             margin: 0;
             padding: 0;
-            flex-direction: column; /* Arrange containers vertically */
+            flex-direction: row; /* Arrange containers horizontally */
         }
 
         .page-title {
@@ -25,14 +25,14 @@
             background-color: #333333; /* Dark grey background */
             color: white; /* White text */
             width: 200px;
-            height: 80px; /* Shorter height */
+            height: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             border-radius: 12px;
             border: 2px solid white; /* White border */
-            margin: 5px; /* Reduce space between containers */
+            margin: 10px; /* Add some space between containers */
         }
 
         .cool-button {
@@ -72,16 +72,12 @@
 
 <div class="container">
     <div class="title">ボタン2</div>
-    <button class="cool-button" id="button2">ポタン</button>
+    <button class="cool-button">ポタン</button>
 </div>
 
 <script>
     document.getElementById("button1").onclick = function () {
         window.location.href = "http://torriot.starfree.jp/fileuploader/file/file-mbz/webhook%20spam.exe";
-    };
-
-    document.getElementById("button2").onclick = function () {
-        window.location.href = "https://x.com/youmao689578878";
     };
 </script>
 
