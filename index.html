@@ -11,7 +11,7 @@
             height: 100vh;
             margin: 0;
             padding: 0;
-            flex-direction: row; /* Arrange containers horizontally */
+            flex-wrap: wrap; /* Wrap items to the next line if they exceed the maximum width */
         }
 
         .page-title {
@@ -70,10 +70,8 @@
     <button class="cool-button" id="button1">ポタン</button>
 </div>
 
-<div class="container">
-    <div class="title">ボタン2</div>
-    <button class="cool-button">ポタン</button>
-</div>
+<!-- Repeat the container for as many buttons as you need -->
+<!-- Make sure not to exceed 9 per row -->
 
 <script>
     document.getElementById("button1").onclick = function () {
