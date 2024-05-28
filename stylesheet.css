@@ -1,30 +1,12 @@
-body {
-    background-color: #222222; 
-    color: white;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    flex-direction: row;
-}
-
-.container {
-    background-color: #333333;
-    color: white;
-    width: 200px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 12px;
-    border: 2px solid white;
-    margin: 10px;
-    transition: box-shadow 0.3s ease;
-}
-
-.container:hover {
-    box-shadow: 0 0 20px #0000FF;
+body::after {
+    content: "";
+    position: absolute;
+    width: 50px; /* 光る範囲の幅 */
+    height: 50px; /* 光る範囲の高さ */
+    border-radius: 50%;
+    background-color: rgba(0, 0, 255, 0.3); /* 青い光の色と透明度 */
+    transform: translate(-50%, -50%); /* 光る位置を中心に合わせる */
+    pointer-events: none; /* カーソルイベントを無視する */
+    transition: transform 0.2s ease; /* 光る位置の移動をスムーズに */
+    z-index: 1; /* 他の要素の上に表示する */
 }
