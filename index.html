@@ -3,27 +3,27 @@
 <head>
     <style>
         body {
-            background-color: #000000; /* Black background for the entire page */
-            color: white; /* White text */
+            background-color: #000000;
+            color: white;
             display: flex;
-            justify-content: flex-start; /* Align items to the left */
+            justify-content: flex-start;
             align-items: center;
             height: 100vh;
             margin: 0;
             padding: 0;
-            flex-direction: row; /* Arrange containers horizontally */
+            flex-direction: row;
         }
 
         .page-title {
             position: absolute;
             top: 10px;
             left: 10px;
-            font-size: 36px; /* Even larger font size */
+            font-size: 36px;
         }
 
         .container {
-            background-color: #333333; /* Dark grey background */
-            color: white; /* White text */
+            background-color: #333333;
+            color: white;
             width: 200px;
             height: 150px;
             display: flex;
@@ -31,12 +31,17 @@
             align-items: center;
             flex-direction: column;
             border-radius: 12px;
-            border: 2px solid white; /* White border */
-            margin: 10px; /* Add some space between containers */
+            border: 2px solid white;
+            margin: 10px;
+            transition: box-shadow 0.3s ease-in-out; /* 新しいプロパティ */
+        }
+
+        .container:hover { /* 新しいスタイル */
+            box-shadow: 0 0 20px #FFFFFF;
         }
 
         .cool-button {
-            background-color: #0000FF; /* Blue */
+            background-color: #0000FF;
             border: none;
             color: white;
             padding: 10px 20px;
@@ -48,12 +53,12 @@
             cursor: pointer;
             border-radius: 12px;
             transition-duration: 0.4s;
-            box-shadow: 0 0 10px #0000FF; /* Blue glow */
+            box-shadow: 0 0 10px #0000FF;
         }
 
         .cool-button:hover {
-            background-color: #000080; /* Darker blue */
-            box-shadow: 0 0 20px #0000FF, 0 0 10px #FFFFFF; /* Intensify blue glow and add white glow to border */
+            background-color: #000080;
+            box-shadow: 0 0 20px #0000FF, 0 0 10px #FFFFFF;
         }
 
         .title {
