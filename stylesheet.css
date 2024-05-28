@@ -1,12 +1,1 @@
-body::after {
-    content: "";
-    position: absolute;
-    width: 50px; /* 光る範囲の幅 */
-    height: 50px; /* 光る範囲の高さ */
-    border-radius: 50%;
-    background-color: rgba(0, 0, 255, 0.3); /* 青い光の色と透明度 */
-    transform: translate(-50%, -50%); /* 光る位置を中心に合わせる */
-    pointer-events: none; /* カーソルイベントを無視する */
-    transition: transform 0.2s ease; /* 光る位置の移動をスムーズに */
-    z-index: 1; /* 他の要素の上に表示する */
-}
+
