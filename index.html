@@ -3,6 +3,7 @@
 <head>
     <style>
         body {
+            background-color: #000000;
             color: white;
             display: flex;
             justify-content: flex-start;
@@ -11,19 +12,6 @@
             margin: 0;
             padding: 0;
             flex-direction: row;
-        }
-
-        body::after {
-            content: "";
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(0, 0, 255, 0.3);
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            transition: transform 0.2s ease;
-            z-index: 1;
         }
 
         .page-title {
@@ -45,11 +33,11 @@
             border-radius: 12px;
             border: 2px solid white;
             margin: 10px;
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease-in-out;
         }
 
         .container:hover {
-            box-shadow: 0 0 20px #0000FF;
+            box-shadow: 0 0 20px #FFFFFF;
         }
 
         .cool-button {
@@ -75,7 +63,7 @@
 
         .title {
             margin-bottom: 10px;
-            text-align: center;
+            text-align: center; /* 新しいプロパティ */
         }
     </style>
 </head>
