@@ -6,20 +6,24 @@
             background-image: url("background.png");
             background-size: cover;
             color: white;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100vh;
             margin: 0;
             padding: 0;
-            flex-direction: row;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .page-title {
-            position: absolute;
-            top: 10px;
-            left: 10px;
             font-size: 36px;
+            padding: 10px;
+        }
+
+        .container-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 10px;
         }
 
         .container {
@@ -28,14 +32,13 @@
             width: 200px;
             height: 150px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             flex-direction: column;
             border-radius: 12px;
             border: 2px solid white;
             margin: 10px;
             transition: box-shadow 0.3s ease-in-out;
-            padding: 10px;
         }
 
         .container:hover {
@@ -51,6 +54,7 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
+            margin: 4px 2px;
             cursor: pointer;
             border-radius: 12px;
             transition-duration: 0.4s;
@@ -63,13 +67,8 @@
         }
 
         .title {
+            margin-bottom: 10px;
             text-align: center;
-        }
-
-        .button-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
         }
     </style>
 </head>
@@ -77,51 +76,39 @@
 
 <div class="page-title">cat net/tool</div>
 
-<div class="container">
-    <div class="title">discord webhook spam</div>
-    <div class="button-container">
+<div class="container-wrapper">
+    <div class="container">
+        <div class="title">discord webhook spam</div>
         <button class="cool-button" id="button1">Go</button>
     </div>
-</div>
 
-<div class="container">
-    <div class="title">web discord webhook spam</div>
-    <div class="button-container">
+    <div class="container">
+        <div class="title">web discord webhook spam</div>
         <button class="cool-button" id="button2">Go</button>
     </div>
-</div>
 
-<div class="container">
-    <div class="title">discord Token Checker</div>
-    <div class="button-container">
+    <div class="container">
+        <div class="title">discord Token Checker</div>
         <button class="cool-button" id="button3">Go</button>
     </div>
-</div>
 
-<div class="container">
-    <div class="title">簡易AutoClicker</div>
-    <div class="button-container">
+    <div class="container">
+        <div class="title">簡易AutoClicker</div>
         <button class="cool-button" id="button4">Go</button>
     </div>
-</div>
 
-<div class="container">
-    <div class="title">YouTube video downloader</div>
-    <div class="button-container">
+    <div class="container">
+        <div class="title">YouTube video downloader</div>
         <button class="cool-button" id="button5">Go</button>
     </div>
-</div>
 
-<div class="container">
-    <div class="title">Dinosour Game cheat (Tampermonkey)</div>
-    <div class="button-container">
+    <div class="container">
+        <div class="title">Dinosour Game cheat (Tampermonkey)</div>
         <button class="cool-button" id="button6">Go</button>
     </div>
-</div>
 
-<div class="container">
-    <div class="title">discord Bot nuker</div>
-    <div class="button-container">
+    <div class="container">
+        <div class="title">discord Bot nuker</div>
         <button class="cool-button" id="button7">Go</button>
     </div>
 </div>
