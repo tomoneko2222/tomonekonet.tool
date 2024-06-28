@@ -28,13 +28,14 @@
             width: 200px;
             height: 150px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             flex-direction: column;
             border-radius: 12px;
             border: 2px solid white;
             margin: 10px;
             transition: box-shadow 0.3s ease-in-out;
+            padding: 10px;
         }
 
         .container:hover {
@@ -50,7 +51,6 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
             cursor: pointer;
             border-radius: 12px;
             transition-duration: 0.4s;
@@ -63,8 +63,13 @@
         }
 
         .title {
-            margin-bottom: 10px;
-            text-align: center; /* 新しいプロパティ */
+            text-align: center;
+        }
+
+        .button-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -74,37 +79,51 @@
 
 <div class="container">
     <div class="title">discord webhook spam</div>
-    <button class="cool-button" id="button1">Go</button>
+    <div class="button-container">
+        <button class="cool-button" id="button1">Go</button>
+    </div>
 </div>
 
 <div class="container">
     <div class="title">web discord webhook spam</div>
-    <button class="cool-button" id="button2">Go</button>
+    <div class="button-container">
+        <button class="cool-button" id="button2">Go</button>
+    </div>
 </div>
 
 <div class="container">
     <div class="title">discord Token Checker</div>
-    <button class="cool-button" id="button3">Go</button>
+    <div class="button-container">
+        <button class="cool-button" id="button3">Go</button>
+    </div>
 </div>
 
 <div class="container">
     <div class="title">簡易AutoClicker</div>
-    <button class="cool-button" id="button4">Go</button>
+    <div class="button-container">
+        <button class="cool-button" id="button4">Go</button>
+    </div>
 </div>
 
 <div class="container">
     <div class="title">YouTube video downloader</div>
-    <button class="cool-button" id="button5">Go</button>
+    <div class="button-container">
+        <button class="cool-button" id="button5">Go</button>
+    </div>
 </div>
 
 <div class="container">
     <div class="title">Dinosour Game cheat (Tampermonkey)</div>
-    <button class="cool-button" id="button6">Go</button>
+    <div class="button-container">
+        <button class="cool-button" id="button6">Go</button>
+    </div>
 </div>
 
 <div class="container">
     <div class="title">discord Bot nuker</div>
-    <button class="cool-button" id="button7">Go</button>
+    <div class="button-container">
+        <button class="cool-button" id="button7">Go</button>
+    </div>
 </div>
 
 <script>
