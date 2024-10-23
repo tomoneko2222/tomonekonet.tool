@@ -36,5 +36,4 @@ function toggleMark(containerId, markType) {
 
 // 使用例:
 toggleMark('container9', 'new'); // 'NEW'マークを表示/非表示
-toggleMark('container8', 'new'); // 'NEW'マークを表示/非表示
 toggleMark('container2', 'modified'); // 'Modified'マークを表示/非表示
