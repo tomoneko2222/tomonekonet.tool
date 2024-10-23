@@ -41,5 +41,5 @@ function toggleMark(containerId, markType) {
 }
 
 // Example usage:
-toggleMark('container9', 'new'); // Correctly toggles 'NEW' mark on container9
+toggleMark('container8', 'new'); // Correctly toggles 'NEW' mark on container9
 // toggleMark('container2', 'modified'); // Correctly toggles 'Modified' mark on container2
