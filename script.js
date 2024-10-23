@@ -19,6 +19,12 @@ buttons.forEach((button, index) => {
 
 function toggleMark(containerId, markType) {
     const container = document.getElementById(containerId);
+    
+    if (!container) {
+        console.error(`Container with ID ${containerId} not found.`);
+        return;
+    }
+
     const newMark = container.querySelector('.mark.new');
     const modifiedMark = container.querySelector('.mark.modified');
 
@@ -34,6 +40,6 @@ function toggleMark(containerId, markType) {
     }
 }
 
-// 使用例:
-toggleMark('container9', 'new'); // 'NEW'マークを表示/非表示
-toggleMark('container2', 'modified'); // 'Modified'マークを表示/非表示
+// Example usage:
+toggleMark('container9', 'new'); // Correctly toggles 'NEW' mark on container9
+toggleMark('container2', 'modified'); // Correctly toggles 'Modified' mark on container2
