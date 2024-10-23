@@ -7,7 +7,8 @@ const urls = [
     "https://github.com/tomoneko2222/youtube-video-downloader/tree/main",
     "https://raw.githubusercontent.com/tomoneko2222/Dinosour-Game/main/cheat.user.js",
     "https://github.com/tomoneko2222/discord-bot-nuker",
-    "https://tomoneko2222.github.io/discord-nuker/"
+    "https://tomoneko2222.github.io/discord-nuker/",
+    "https://github.com/tomoneko2222/discord-selfbot/tree/main?tab=readme-ov-file"
 ];
 
 buttons.forEach((button, index) => {
@@ -34,6 +35,5 @@ function toggleMark(containerId, markType) {
 }
 
 // 使用例:
-toggleMark('container1', 'new'); // 'NEW'マークを表示/非表示
+toggleMark('container7', 'new'); // 'NEW'マークを表示/非表示
 toggleMark('container2', 'modified'); // 'Modified'マークを表示/非表示
-toggleMark('container3', ''); // マークを非表示
