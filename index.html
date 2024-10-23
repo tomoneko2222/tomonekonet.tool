@@ -10,81 +10,261 @@
     <meta property="og:image" content="https://tomoneko2222.github.io/background.png">
     <meta property="og:url" content="https://tomoneko2222.github.io/tomonekonet.tool/">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            background-image: url("background.png");
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .page-title {
+            font-size: 48px;
+            padding: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0ff, 0 0 20px #0ff, 0 0 35px #0ff, 0 0 40px #0ff, 0 0 50px #0ff;
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 70px #0ff, 0 0 80px #0ff, 0 0 100px #0ff;
+            }
+        }
+
+        .container-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .container {
+            position: relative;
+            background-color: rgba(51, 51, 51, 0.8);
+            color: white;
+            width: 220px;
+            height: 170px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 15px;
+            border: 2px solid #00ffff;
+            margin: 15px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+        }
+
+        .cool-button {
+            background-color: #0000FF;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 8px 2px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 15px #0000FF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cool-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.6s;
+        }
+
+        .cool-button:hover:before {
+            left: 100%;
+        }
+
+        .cool-button:hover {
+            background-color: #000080;
+            box-shadow: 0 0 25px #0000FF, 0 0 15px #FFFFFF;
+        }
+
+        .title {
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .label-by {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: white;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .mark {
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background-color: red;
+            color: white;
+            padding: 5px 30px;
+            font-size: 12px;
+            font-weight: bold;
+            transform: rotate(45deg);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .divider {
+            border-top: 2px solid #00ffff;
+            width: 100%;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 <body>
-    <div class="page-title">cat net/tool</div>
 
-    <div class="divider"></div>
+<div class="page-title">cat net/tool</div>
 
-    <div class="label-by">by tomoneko</div>
+<div class="divider"></div>
 
-    <div class="container-wrapper">
-        <div class="container" id="container1">
-            <span class="mark new hidden">NEW</span>
-            <span class="mark modified hidden">Modified</span>
-            <div class="title">Discord Webhook Spam</div>
-            <button class="cool-button" id="button1">Go</button>
-        </div>
+<div class="label-by">by tomoneko</div>
 
-        <div class="container" id="container2">
-            <span class="mark new hidden">NEW</span>
-            <span class="mark modified hidden">Modified</span>
-            <div class="title">Web Discord Webhook Spam</div>
-            <button class="cool-button" id="button2">Go</button>
-        </div>
-
-        <div class="container" id="container3">
-            <span class="mark new hidden">NEW</span>
-            <span class="mark modified hidden">Modified</span>
-            <div class="title">Discord Token Checker</div>
-            <button class="cool-button" id="button3">Go</button>
-        </div>
-
-        <div class="container" id="container4">
-            <span class="mark new hidden">NEW</span>
-            <span class="mark modified hidden">Modified</span>
-            <div class="title">簡易AutoClicker</div>
-            <button class="cool-button" id="button4">Go</button>
-        </div>
-
-        <div class="container" id="container5">
-            <span class="mark new hidden">NEW</span>
-            <span class="mark modified hidden">Modified</span>
-            <div class="title">YouTube Video Downloader</div>
-            <button class="cool-button" id="button5">Go</button>
-        </div>
-
-        <div class="container" id="container6">
-            <span class="mark new hidden">NEW</span>
-            <span class="mark modified hidden">Modified</span>
-            <div class="title">Dinosaur Game Cheat</div>
-            <button class="cool-button" id="button6">Go</button>
-        </div>
-
-        <div class="container" id="container7">
-            <span class="mark new hidden">NEW</span>
-            <span class="mark modified hidden">Modified</span>
-            <div class="title">Discord Bot Nuker</div>
-            <button class="cool-button" id="button7">Go</button>
-        </div>
-
-        <div class="container" id="container8">
-            <span class="mark new hidden">NEW</span>
-            <span class="mark modified hidden">Modified</span>
-            <div class="title">Discord Token Nuker</div>
-            <button class="cool-button" id="button8">Go</button>
-        </div>
-
-        <div class="container" id="container9">
-            <span class="mark new hidden">NEW</span>
-            <span class="mark modified hidden">Modified</span>
-            <div class="title">Discord 簡易selfbot作成機</div>
-            <button class="cool-button" id="button9">Go</button>
-        </div>
-        
+<div class="container-wrapper">
+    <div class="container" id="container1">
+        <span class="mark new hidden">NEW</span>
+        <span class="mark modified hidden">Modified</span>
+        <div class="title">Discord Webhook Spam</div>
+        <button class="cool-button" id="button1">Go</button>
     </div>
 
-    <script src="script.js"></script>
+    <div class="container" id="container2">
+        <span class="mark new hidden">NEW</span>
+        <span class="mark modified hidden">Modified</span>
+        <div class="title">Web Discord Webhook Spam</div>
+        <button class="cool-button" id="button2">Go</button>
+    </div>
+
+    <div class="container" id="container3">
+        <span class="mark new hidden">NEW</span>
+        <span class="mark modified hidden">Modified</span>
+        <div class="title">Discord Token Checker</div>
+        <button class="cool-button" id="button3">Go</button>
+    </div>
+
+    <div class="container" id="container4">
+        <span class="mark new hidden">NEW</span>
+        <span class="mark modified hidden">Modified</span>
+        <div class="title">簡易AutoClicker</div>
+        <button class="cool-button" id="button4">Go</button>
+    </div>
+
+    <div class="container" id="container5">
+        <span class="mark new hidden">NEW</span>
+        <span class="mark modified hidden">Modified</span>
+        <div class="title">YouTube Video Downloader</div>
+        <button class="cool-button" id="button5">Go</button>
+    </div>
+
+    <div class="container" id="container6">
+        <span class="mark new hidden">NEW</span>
+        <span class="mark modified hidden">Modified</span>
+        <div class="title">Dinosaur Game Cheat</div>
+        <button class="cool-button" id="button6">Go</button>
+    </div>
+
+    <div class="container" id="container7">
+        <span class="mark new hidden">NEW</span>
+        <span class="mark modified hidden">Modified</span>
+        <div class="title">Discord Bot Nuker</div>
+        <button class="cool-button" id="button7">Go</button>
+    </div>
+
+    <div class="container" id="container8">
+        <span class="mark new hidden">NEW</span>
+        <span class="mark modified hidden">Modified</span>
+        <div class="title">Discord Token Nuker</div>
+        <button class="cool-button" id="button8">Go</button>
+    </div>
+</div>
+
+<script>
+    const buttons = document.querySelectorAll('.cool-button');
+    const urls = [
+        "https://github.com/tomoneko2222/discord-webhookspam",
+        "https://tomoneko2222.github.io/github.io/",
+        "https://github.com/tomoneko2222/Token-Checker/tree/main",
+        "https://97.gigafile.nu/0914-d6f07293c3af0e31bc4e0407bfc56eeb8",
+        "https://github.com/tomoneko2222/youtube-video-downloader/tree/main",
+        "https://raw.githubusercontent.com/tomoneko2222/Dinosour-Game/main/cheat.user.js",
+        "https://github.com/tomoneko2222/discord-bot-nuker",
+        "https://tomoneko2222.github.io/discord-nuker/"
+    ];
+
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            window.location.href = urls[index];
+        });
+    });
+
+    function toggleMark(containerId, markType) {
+        const container = document.getElementById(containerId);
+        const newMark = container.querySelector('.mark.new');
+        const modifiedMark = container.querySelector('.mark.modified');
+
+        if (markType === 'new') {
+            newMark.classList.toggle('hidden');
+            modifiedMark.classList.add('hidden');
+        } else if (markType === 'modified') {
+            modifiedMark.classList.toggle('hidden');
+            newMark.classList.add('hidden');
+        } else {
+            newMark.classList.add('hidden');
+            modifiedMark.classList.add('hidden');
+        }
+    }
+
+    // 使用例:
+    toggleMark('container1', 'new'); // 'NEW'マークを表示/非表示
+    toggleMark('container2', 'modified'); // 'Modified'マークを表示/非表示
+    toggleMark('container3', ''); // マークを非表示
+</script>
+
 </body>
 </html>
