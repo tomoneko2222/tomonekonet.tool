@@ -6,7 +6,7 @@
     <title>cat net/tool</title>
     <link rel="icon" href="logo.png" type="image/png">
     <meta property="og:title" content="cat net/tool">
-    <meta property="og:description" content="なんか">
+    <meta property="og:description" content="いろいろ">
     <meta property="og:url" content="https://tomoneko2222.github.io/tomonekonet.tool/">
     <meta property="og:type" content="website">
     <style>
@@ -19,7 +19,7 @@
         }
 
         body {
-            background-color: #003300;
+            background-color: #000011;
             color: white;
             font-family: 'Roboto', sans-serif;
             display: flex;
@@ -33,15 +33,14 @@
             text-align: center;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             animation: glow 2s ease-in-out infinite alternate;
-            color: #FF0000;
         }
 
         @keyframes glow {
             from {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff0000, 0 0 20px #ff0000, 0 0 35px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0ff, 0 0 20px #0ff, 0 0 35px #0ff, 0 0 40px #0ff, 0 0 50px #0ff;
             }
             to {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000, 0 0 100px #ff0000;
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 70px #0ff, 0 0 80px #0ff, 0 0 100px #0ff;
             }
         }
 
@@ -63,10 +62,10 @@
             align-items: center;
             flex-direction: column;
             border-radius: 15px;
-            border: 2px solid #00ff00;
+            border: 2px solid #00ffff;
             margin: 15px;
             transition: all 0.3s ease-in-out;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
             overflow: hidden;
             animation: float 6s ease-in-out infinite;
         }
@@ -79,11 +78,11 @@
 
         .container:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
         }
 
         .cool-button {
-            background-color: #008000;
+            background-color: #0000FF;
             border: none;
             color: white;
             padding: 12px 24px;
@@ -95,7 +94,7 @@
             cursor: pointer;
             border-radius: 25px;
             transition: all 0.4s ease;
-            box-shadow: 0 0 15px #008000;
+            box-shadow: 0 0 15px #0000FF;
             position: relative;
             overflow: hidden;
         }
@@ -116,8 +115,8 @@
         }
 
         .cool-button:hover {
-            background-color: #006400;
-            box-shadow: 0 0 25px #008000, 0 0 15px #FFFFFF;
+            background-color: #000080;
+            box-shadow: 0 0 25px #0000FF, 0 0 15px #FFFFFF;
         }
 
         .title {
@@ -144,7 +143,7 @@
         }
 
         .divider {
-            border-top: 2px solid #00ff00;
+            border-top: 2px solid #00ffff;
             width: 100%;
             margin: 20px auto 10px;
             animation: pulse 2s infinite;
@@ -220,42 +219,6 @@
                 opacity: 0;
             }
         }
-
-        .snowflake {
-            position: absolute;
-            top: 0;
-            color: white;
-            font-size: 1em;
-            user-select: none;
-            pointer-events: none;
-            z-index: 1000;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100vh); }
-        }
-
-        .bottom-snow {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background: linear-gradient(to bottom, #f0f0f0 0%, #ffffff 100%);
-            z-index: 999;
-            box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.5);
-            border-top-left-radius: 50% 20px;
-            border-top-right-radius: 50% 20px;
-            animation: snowy 3s infinite;
-        }
-
-        @keyframes snowy {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(-10px); }
-            100% { transform: translateX(0); }
-        }
     </style>
 </head>
 <body>
@@ -289,6 +252,7 @@
         <div class="title">Discord Token Checker</div>
         <button class="cool-button" onclick="openInNewTab('https://github.com/tomoneko2222/Token-Checker/tree/main')">Go</button>
     </div>
+
 
     <div class="container" id="container5">
         <span class="mark new hidden">NEW</span>
@@ -326,8 +290,6 @@
     </div>
 </div>
 
-<div class="bottom-snow"></div>
-
 <script>
     function openInNewTab(url) {
         window.open(url, '_blank');
@@ -354,6 +316,7 @@
     toggleMark('container2', 'modified');
     toggleMark('container8', 'modified');
 
+    // 星空の背景を作成
     const starBackground = document.getElementById('starBackground');
     const starCount = 200;
     const shootingStarCount = 5;
@@ -375,20 +338,8 @@
         shootingStar.style.animationDelay = `${Math.random() * 5}s`;
         starBackground.appendChild(shootingStar);
     }
-
-    // 雪のエフェクトを追加
-    const snowflakeCount = 100;
-    for (let i = 0; i < snowflakeCount; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.style.left = `${Math.random() * 100}%`;
-        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
-        snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
-        snowflake.textContent = '❄';
-        starBackground.appendChild(snowflake);
-    }
-
 </script>
 <script src="main.js"></script>
+
 </body>
 </html>
