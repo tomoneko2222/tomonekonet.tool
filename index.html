@@ -6,7 +6,7 @@
     <title>cat net/tool</title>
     <link rel="icon" href="logo.png" type="image/png">
     <meta property="og:title" content="cat net/tool">
-    <meta property="og:description" content="いろいろ">
+    <meta property="og:description" content="Various tools including Discord webhook spam, Token Checker, AutoClicker, YouTube downloader, and more.">
     <meta property="og:url" content="https://tomoneko2222.github.io/tomonekonet.tool/">
     <meta property="og:type" content="website">
     <style>
@@ -219,6 +219,74 @@
                 opacity: 0;
             }
         }
+
+        .redirect-display {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            z-index: 1000;
+            transition: opacity 1s ease-in-out;
+            opacity: 1;
+        }
+
+        .redirect-display.show {
+            display: block;
+        }
+
+        .redirect-display.hide {
+            opacity: 0;
+        }
+
+        .redirect-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .redirect-url {
+            color: #00f;
+            margin-bottom: 20px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .heart-container {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .heart-icon {
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .heart-icon.liked {
+            color: pink;
+        }
+
+        .heart-count {
+            margin-left: 5px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -290,9 +358,86 @@
     </div>
 </div>
 
+<div id="redirectDisplay" class="redirect-display">
+    <button class="close-button" onclick="closeRedirectDisplay()">×</button>
+    <div class="redirect-title" id="redirectTitle"></div>
+    <div class="redirect-url" id="redirectUrl"></div>
+    <button class="cool-button" id="finalRedirectButton">redirect</button>
+    <div class="heart-container" onclick="toggleHeart()">
+        <span id="heartIcon" class="heart-icon">♡</span>
+        <span id="heartCount" class="heart-count">0</span>
+    </div>
+</div>
+
 <script>
     function openInNewTab(url) {
-        window.open(url, '_blank');
+        const redirectDisplay = document.getElementById('redirectDisplay');
+        const redirectTitle = document.getElementById('redirectTitle');
+        const redirectUrl = document.getElementById('redirectUrl');
+        const finalRedirectButton = document.getElementById('finalRedirectButton');
+        const container = event.target.closest('.container');
+        const containerId = container.id;
+
+        redirectTitle.textContent = container.querySelector('.title').textContent;
+        redirectUrl.textContent = url;
+        redirectDisplay.setAttribute('data-id', containerId);
+        finalRedirectButton.onclick = function() {
+            window.open(url, '_blank');
+            closeRedirectDisplay();
+        };
+
+        checkHeartStatus(containerId);
+        redirectDisplay.classList.add('show');
+    }
+
+    function closeRedirectDisplay() {
+        const redirectDisplay = document.getElementById('redirectDisplay');
+        redirectDisplay.classList.add('hide');
+        setTimeout(() => {
+            redirectDisplay.classList.remove('show', 'hide');
+        }, 1000);
+    }
+
+    function toggleHeart() {
+        const heartIcon = document.getElementById('heartIcon');
+        const heartCount = document.getElementById('heartCount');
+        const displayId = document.getElementById('redirectDisplay').getAttribute('data-id');
+        const cookieName = `heart_${displayId}`;
+        let count = parseInt(heartCount.textContent);
+
+        if (heartIcon.classList.contains('liked')) {
+            heartIcon.classList.remove('liked');
+            heartIcon.textContent = '♡';
+            count--;
+            document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        } else {
+            heartIcon.classList.add('liked');
+            heartIcon.textContent = '♥';
+            count++;
+            document.cookie = `${cookieName}=liked; path=/;`;
+        }
+
+        heartCount.textContent = count;
+    }
+
+    function checkHeartStatus(containerId) {
+        const heartIcon = document.getElementById('heartIcon');
+        const heartCount = document.getElementById('heartCount');
+        const cookieName = `heart_${containerId}`;
+        const cookies = document.cookie.split('; ');
+
+        heartIcon.classList.remove('liked');
+        heartIcon.textContent = '♡';
+        heartCount.textContent = '0';
+
+        cookies.forEach(cookie => {
+            const [name, value] = cookie.split('=');
+            if (name === cookieName && value === 'liked') {
+                heartIcon.classList.add('liked');
+                heartIcon.textContent = '♥';
+                heartCount.textContent = '1';
+            }
+        });
     }
 
     function toggleMark(containerId, markType) {
@@ -338,8 +483,15 @@
         shootingStar.style.animationDelay = `${Math.random() * 5}s`;
         starBackground.appendChild(shootingStar);
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const containers = document.querySelectorAll('.container');
+        containers.forEach(container => {
+            const containerId = container.id;
+            checkHeartStatus(containerId);
+        });
+    });
 </script>
 <script src="main.js"></script>
-
 </body>
 </html>
