@@ -282,11 +282,6 @@
         .heart-icon.liked {
             color: pink;
         }
-
-        .heart-count {
-            margin-left: 5px;
-            font-size: 16px;
-        }
     </style>
 </head>
 <body>
@@ -365,66 +360,11 @@
     <button class="cool-button" id="finalRedirectButton">redirect</button>
     <div class="heart-container" onclick="toggleHeart()">
         <span id="heartIcon" class="heart-icon">♡</span>
-        <span id="heartCount" class="heart-count">0</span>
     </div>
 </div>
 
 <script>
-    const apiUrl = 'https://api.github.com/repos/USERNAME/REPO/contents/heart_counts.json';
-
-    async function fetchHeartCounts() {
-        try {
-            const response = await fetch(apiUrl, {
-                headers: {
-                    'Accept': 'application/vnd.github.v3.raw'
-                }
-            });
-            if (!response.ok) throw new Error('Network response was not ok');
-            return await response.json();
-        } catch (error) {
-            console.error('Failed to fetch heart counts:', error);
-            return {};
-        }
-    }
-
-    async function updateHeartCounts(data) {
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `token YOUR_GITHUB_TOKEN`,
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/vnd.github.v3+json'
-                },
-                body: JSON.stringify({
-                    message: 'Update heart counts',
-                    content: btoa(JSON.stringify(data)),
-                    sha: await getSha()
-                })
-            });
-            if (!response.ok) throw new Error('Network response was not ok');
-        } catch (error) {
-            console.error('Failed to update heart counts:', error);
-        }
-    }
-
-    async function getSha() {
-        try {
-            const response = await fetch(apiUrl, {
-                headers: {
-                    'Accept': 'application/vnd.github.v3+json'
-                }
-            });
-            if (!response.ok) throw new Error('Network response was not ok');
-            const data = await response.json();
-            return data.sha;
-        } catch (error) {
-            console.error('Failed to get SHA:', error);
-            return '';
-        }
-    }
-
-    async function openInNewTab(url) {
+    function openInNewTab(url) {
         const redirectDisplay = document.getElementById('redirectDisplay');
         const redirectTitle = document.getElementById('redirectTitle');
         const redirectUrl = document.getElementById('redirectUrl');
@@ -440,10 +380,6 @@
             closeRedirectDisplay();
         };
 
-        const heartCounts = await fetchHeartCounts();
-        const count = heartCounts[containerId] || 0;
-        document.getElementById('heartCount').textContent = count;
-
         checkHeartStatus(containerId);
         redirectDisplay.classList.add('show');
     }
@@ -456,41 +392,29 @@
         }, 1000);
     }
 
-    async function toggleHeart() {
+    function toggleHeart() {
         const heartIcon = document.getElementById('heartIcon');
-        const heartCount = document.getElementById('heartCount');
         const displayId = document.getElementById('redirectDisplay').getAttribute('data-id');
         const cookieName = `heart_${displayId}`;
-        let count = parseInt(heartCount.textContent);
 
         if (heartIcon.classList.contains('liked')) {
             heartIcon.classList.remove('liked');
             heartIcon.textContent = '♡';
-            count--;
             document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         } else {
             heartIcon.classList.add('liked');
             heartIcon.textContent = '♥';
-            count++;
             document.cookie = `${cookieName}=liked; path=/;`;
         }
-
-        heartCount.textContent = count;
-
-        const heartCounts = await fetchHeartCounts();
-        heartCounts[displayId] = count;
-        await updateHeartCounts(heartCounts);
     }
 
     function checkHeartStatus(containerId) {
         const heartIcon = document.getElementById('heartIcon');
-        const heartCount = document.getElementById('heartCount');
         const cookieName = `heart_${containerId}`;
         const cookies = document.cookie.split('; ');
 
         heartIcon.classList.remove('liked');
         heartIcon.textContent = '♡';
-        heartCount.textContent = '0';
 
         cookies.forEach(cookie => {
             const [name, value] = cookie.split('=');
@@ -522,7 +446,6 @@
     toggleMark('container2', 'modified');
     toggleMark('container8', 'modified');
 
-    // 星空の背景を作成
     const starBackground = document.getElementById('starBackground');
     const starCount = 200;
     const shootingStarCount = 5;
@@ -545,13 +468,10 @@
         starBackground.appendChild(shootingStar);
     }
 
-    document.addEventListener('DOMContentLoaded', async () => {
+    document.addEventListener('DOMContentLoaded', () => {
         const containers = document.querySelectorAll('.container');
-        const heartCounts = await fetchHeartCounts();
         containers.forEach(container => {
             const containerId = container.id;
-            const count = heartCounts[containerId] || 0;
-            container.querySelector('.heart-count').textContent = count;
             checkHeartStatus(containerId);
         });
     });
